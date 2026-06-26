@@ -135,6 +135,7 @@
   (("C-c b" . ibuffer-sidebar-toggle-sidebar))
 
   :config
+  (setq ibuffer-sidebar-width 28)
   (ibuffer-sidebar-show-sidebar)
   (add-hook 'server-after-make-frame-hook #'ibuffer-sidebar-show-sidebar)
 
@@ -225,7 +226,12 @@
 		  ;; https://github.com/mwolson/eglot-python-preset/tree/main/#workspace-configuration-basedpyright
 		  :basedpyright.analysis
 		  (:diagnosticSeverityOverrides
-		   (:reportAny "none"))
+		   (
+		    :reportAny "none"
+		    :reportImplicitStringConcatenation "none"
+		    :reportImplicitAbstractClass "hint"
+		    )
+		   )
 
 		  ;; vscode-json-language-server
 		  :json.format
