@@ -92,6 +92,10 @@
   :ensure t)
 
 (use-package emacs
+
+  :mode
+  ("\\.ya?ml\\'" . yaml-ts-mode)
+
   :custom
 
   ;; Enable indentation+completion using the TAB key.
@@ -191,8 +195,6 @@
   :hook
   (csv-mode . my/csv-highlight)
   )
-
-(add-to-list 'auto-mode-alist '("\\.ya?ml\\'" . yaml-ts-mode))
 
 (use-package treesit-auto
   :ensure t
