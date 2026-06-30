@@ -234,6 +234,9 @@
 		    :reportAny "none"
 		    :reportImplicitStringConcatenation "none"
 		    :reportImplicitAbstractClass "hint"
+		    :reportMissingTypeArgument "hint"
+
+		    :diagnosticMode "workspace"
 		    )
 		   )
 
