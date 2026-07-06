@@ -131,12 +131,28 @@
               (ibuffer-switch-to-saved-filter-groups "default")))
   )
 
+(defun my/ibuffer-sidebar-increase-width ()
+  (interactive)
+  (setq ibuffer-sidebar-width (+ ibuffer-sidebar-width 5))
+  (ibuffer-sidebar-hide-sidebar)
+  (ibuffer-sidebar-show-sidebar))
+
+(defun my/ibuffer-sidebar-decrease-width ()
+  (interactive)
+  (setq ibuffer-sidebar-width (max 10 (- ibuffer-sidebar-width 5)))
+  (ibuffer-sidebar-hide-sidebar)
+  (ibuffer-sidebar-show-sidebar))
+
 (use-package ibuffer-sidebar
   :ensure t
   :demand t
 
   :bind
-  (("C-c b" . ibuffer-sidebar-toggle-sidebar))
+  (
+   ("C-c b" . ibuffer-sidebar-toggle-sidebar)
+   ("C-=" . my/ibuffer-sidebar-increase-width)
+   ("C--" . my/ibuffer-sidebar-decrease-width)
+   )
 
   :config
   (setq ibuffer-sidebar-width 28)
