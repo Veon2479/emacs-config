@@ -252,6 +252,7 @@
 		    :reportImplicitStringConcatenation "none"
 		    :reportImplicitAbstractClass "hint"
 		    :reportMissingTypeArgument "hint"
+		    :reportUnusedCallResult "none"
 
 		    :diagnosticMode "workspace"
 		    )
