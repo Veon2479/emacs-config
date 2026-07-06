@@ -172,6 +172,7 @@
 
 (use-package markdown-mode :ensure t :defer t)
 (use-package dotenv-mode :ensure t :defer t)
+(use-package docker-compose-mode :ensure t :defer t)
 
 (use-package color :defer t)
 
@@ -281,6 +282,13 @@
   (setf (alist-get 'prettier apheleia-formatters)
         '("prettier" "--stdin-filepath" filepath))
   (setf (alist-get 'json-ts-mode apheleia-mode-alist) '(prettier))
+
+  (setf (alist-get 'prettier-yaml apheleia-formatters)
+	'("prettier"
+	  "--parser" "yaml"
+	  "--tab-width" "2"
+	  "--use-tabs" "false"))
+  (setf (alist-get 'docker-compose-mode apheleia-mode-alist) '(prettier-yaml))
 
   (apheleia-global-mode t)
 
