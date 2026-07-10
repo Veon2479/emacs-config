@@ -133,13 +133,13 @@
 
 (defun my/ibuffer-sidebar-increase-width ()
   (interactive)
-  (setq ibuffer-sidebar-width (+ ibuffer-sidebar-width 5))
+  (setq ibuffer-sidebar-width (+ ibuffer-sidebar-width 3))
   (ibuffer-sidebar-hide-sidebar)
   (ibuffer-sidebar-show-sidebar))
 
 (defun my/ibuffer-sidebar-decrease-width ()
   (interactive)
-  (setq ibuffer-sidebar-width (max 10 (- ibuffer-sidebar-width 5)))
+  (setq ibuffer-sidebar-width (max 10 (- ibuffer-sidebar-width 3)))
   (ibuffer-sidebar-hide-sidebar)
   (ibuffer-sidebar-show-sidebar))
 
