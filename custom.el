@@ -5,7 +5,7 @@
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    '(apheleia blamer breadcrumb corfu csv-mode docker-compose-mode
-	      dotenv-mode ef-themes gnu-elpa-keyring-update
+	      dotenv-mode ef-themes eglot gnu-elpa-keyring-update
 	      ibuffer-sidebar markdown-mode no-littering treesit-auto)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
