@@ -326,3 +326,23 @@
   )
 
 (global-set-key (kbd "C-/") #'comment-line)
+
+
+(defun my/kio-fuse->tramp (path)
+  "Rewrite a kio-fuse sftp PATH to a TRAMP /ssh: path."
+  (if (string-match
+       "/run/user/[0-9]+/kio-fuse[^/]*/sftp/\\([^/@]+@[^/:]+\\)\\(?::\\([0-9]+\\)\\)?/\\(.*\\)"
+       path)
+      (let ((userhost (match-string 1 path))
+            (port     (match-string 2 path))
+            (fpath    (match-string 3 path)))
+        (format "/ssh:%s%s:/%s"
+                userhost
+                (if (and port (not (string= port "22"))) (concat "#" port) "")
+                fpath))
+    path))
+
+(defun my/find-file-noselect-kio-redirect (orig-fn filename &rest args)
+  (apply orig-fn (my/kio-fuse->tramp filename) args))
+
+(advice-add 'find-file-noselect :around #'my/find-file-noselect-kio-redirect)
