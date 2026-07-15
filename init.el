@@ -27,6 +27,19 @@
 
 (use-package gnu-elpa-keyring-update :ensure t :defer t)
 
+(use-package auto-package-update
+  :ensure t
+
+  :custom
+  (auto-package-update-interval 7)
+  (auto-package-update-prompt-before-update t)
+  (auto-package-update-hide-results t)
+
+  :config
+  (auto-package-update-maybe)
+  (auto-package-update-at-time "14:00")
+  )
+
 (use-package no-littering :ensure t :defer nil)
 
 ;; (load "~/.emacs.d/leaf-dark-theme.el")
