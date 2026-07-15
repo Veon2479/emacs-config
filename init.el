@@ -328,18 +328,27 @@
 (global-set-key (kbd "C-/") #'comment-line)
 
 
-(defun my/kio-fuse->tramp (path)
-  "Rewrite a kio-fuse sftp PATH to a TRAMP /ssh: path."
-  (if (string-match
-       "/run/user/[0-9]+/kio-fuse[^/]*/sftp/\\([^/@]+@[^/:]+\\)\\(?::\\([0-9]+\\)\\)?/\\(.*\\)"
-       path)
-      (let ((userhost (match-string 1 path))
-            (port     (match-string 2 path))
-            (fpath    (match-string 3 path)))
+(defun my/kio-fuse/sftp->ssh (rest)
+  (if (string-match "\\([^/@]+@[^/:]+\\)\\(?::\\([0-9]+\\)\\)?/\\(.*\\)" rest)
+      (let ((userhost (match-string 1 rest))
+            (port     (match-string 2 rest))
+            (fpath    (match-string 3 rest)))
         (format "/ssh:%s%s:/%s"
                 userhost
                 (if (and port (not (string= port "22"))) (concat "#" port) "")
                 fpath))
+    nil))
+
+(defun my/kio-fuse->tramp (path)
+  "Translate kio-fuse based path to TRAMP-compatible direct path in order to bypass locally mounted remote fs access"
+  (if (string-match "/run/user/[0-9]+/kio-fuse[^/]*/\\([^/]+\\)/\\(.*\\)" path)
+      (let* ((proto (match-string 1 path))
+             (rest  (match-string 2 path))
+             (result
+              (pcase proto
+                ("sftp" (my/kio-fuse/sftp->ssh rest))
+                (_ nil))))
+        (or result path))
     path))
 
 (defun my/find-file-noselect-kio-redirect (orig-fn filename &rest args)
