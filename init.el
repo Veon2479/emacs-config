@@ -96,6 +96,7 @@
 (setq use-short-answers t)  ;; use y/n instead of yes/no when prompted
 (tool-bar-mode -1)
 (frame-parameter nil 'client) ;; fix KDE window grouping when using emacsclient and pinning
+(setq vc-display-status nil)
 
 (setq scroll-conservatively 10
       scroll-margin 15)
