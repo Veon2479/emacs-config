@@ -242,6 +242,9 @@
   :ensure t
   :defer t
 
+  :init
+  (setq eglot-max-file-watches most-positive-fixnum)
+
   :hook (prog-mode . eglot-ensure)
 
   :config
