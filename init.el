@@ -331,6 +331,8 @@
 
 (global-set-key (kbd "C-/") #'comment-line)
 
+(use-package symbol-overlay :ensure t :defer t)
+
 
 (defun my/kio-fuse/sftp->ssh (rest)
   (if (string-match "\\([^/@]+@[^/:]+\\)\\(?::\\([0-9]+\\)\\)?/\\(.*\\)" rest)
