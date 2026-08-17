@@ -40,7 +40,20 @@
   (auto-package-update-at-time "14:00")
   )
 
-(use-package no-littering :ensure t :defer nil)
+(use-package no-littering
+  :ensure t
+  :defer nil
+
+  :config
+  (setq auto-save-file-name-transforms
+        `((".*" ,(no-littering-expand-var-file-name "auto-save/") t)))
+
+  )
+
+;; backups: reuse your local backup-directory-alist for remote too
+;; (setq tramp-backup-directory-alist backup-directory-alist)
+(setq backup-directory-alist '(("." . "~/.emacs.d/tmp")))
+(setq tramp-backup-directory-alist nil)
 
 ;; (load "~/.emacs.d/leaf-dark-theme.el")
 ;; (load-theme 'leaf-dark t)
@@ -193,7 +206,6 @@
 
 (with-eval-after-load 'dired
   (define-key dired-mode-map [mouse-2] #'dired-find-file))
-
 
 ;; (setq auto-save-list-file-prefix "~/.emacs.d/autosave/")
 ;; (setq auto-save-file-name-transforms  '((".*" "~/.emacs.d/autosave/" t)))
