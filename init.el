@@ -249,6 +249,18 @@
   (treesit-auto-install 'prompt)
   )
 
+(use-package treesit-fold
+  :ensure t
+
+  :config
+  (global-treesit-fold-indicators-mode t)
+  (setq treesit-fold-line-count-show t)
+
+  :hook
+  ((python-ts-mode . treesit-fold-close-all))
+
+  )
+
 ;; in order to upgrade eglot to latest version manually https://www.gnu.org/software/emacs/manual/html_node/eglot/Getting-the-latest-version.html
 (use-package eglot
   :ensure t
@@ -300,6 +312,7 @@
 		  :json.validate
 		  (:enable t)))
   )
+(setq flymake-fringe-indicator-position 'right-fringe)
 
 (add-hook 'write-file-hooks 'delete-trailing-whitespace)
 
