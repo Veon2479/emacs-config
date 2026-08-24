@@ -312,7 +312,9 @@
 		  :json.validate
 		  (:enable t)))
   )
-(setq flymake-fringe-indicator-position 'right-fringe)
+;; (setq flymake-fringe-indicator-position 'right-fringe)
+(setq flymake-indicator-type 'margins)
+
 
 (add-hook 'write-file-hooks 'delete-trailing-whitespace)
 
