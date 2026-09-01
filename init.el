@@ -1,3 +1,5 @@
+;;; -*- lexical-binding: t -*-
+
 ;; put all customize-related code into separate file instead of init.el
 (setq custom-file (expand-file-name "custom.el" user-emacs-directory))
 (load custom-file 'noerror)
