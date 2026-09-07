@@ -153,7 +153,7 @@
   (setq ibuffer-saved-filter-groups
         '(("default"
            ("Org" (mode . org-mode))
-           ("Programming" (derived-mode . prog-mode))
+           ("Code" (derived-mode . prog-mode))
            ("Dired" (mode . dired-mode)))))
   (add-hook 'ibuffer-mode-hook
             (lambda ()
@@ -184,7 +184,7 @@
    )
 
   :config
-  (setq ibuffer-sidebar-width 28)
+  (setq ibuffer-sidebar-width 16)
   (ibuffer-sidebar-show-sidebar)
   (add-hook 'server-after-make-frame-hook #'ibuffer-sidebar-show-sidebar)
 
