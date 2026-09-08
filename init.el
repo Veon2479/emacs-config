@@ -263,6 +263,8 @@
 
   )
 
+(add-hook 'prog-mode-hook #'reveal-mode)
+
 ;; in order to upgrade eglot to latest version manually https://www.gnu.org/software/emacs/manual/html_node/eglot/Getting-the-latest-version.html
 (use-package eglot
   :ensure t
