@@ -289,18 +289,21 @@
   (setq-default eglot-workspace-configuration
 		'(
 		  ;; basedpyright-langserver
-		  ;; official config from docs does not work, solution from here
-		  ;; https://github.com/mwolson/eglot-python-preset/tree/main/#workspace-configuration-basedpyright
-		  :basedpyright.analysis
-		  (:diagnosticSeverityOverrides
+		  :basedpyright
+		  (
+		   :typeCheckingMode "recommended"
+		   :analysis
 		   (
-		    :reportAny "none"
-		    :reportImplicitStringConcatenation "none"
-		    :reportImplicitAbstractClass "hint"
-		    :reportMissingTypeArgument "hint"
-		    :reportUnusedCallResult "none"
-
+		    :autoImportCompletions :json-false
 		    :diagnosticMode "workspace"
+		    :diagnosticSeverityOverrides
+		    (
+		     :reportAny "none"
+		     :reportImplicitStringConcatenation "none"
+		     :reportImplicitAbstractClass "hint"
+		     :reportMissingTypeArgument "hint"
+		     :reportUnusedCallResult "none"
+		     )
 		    )
 		   )
 
