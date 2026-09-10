@@ -290,7 +290,7 @@
 		  ;; basedpyright-langserver
 		  :basedpyright
 		  (
-		   :allowedUntypedLibraries ["mercantile" "rasterio"] ;; does not work?
+		   :allowedUntypedLibraries ["mercantile" "rasterio" "rmt"] ;; does not work?
 		   :typeCheckingMode "recommended"
 		   :analysis
 		   (
@@ -303,6 +303,7 @@
 		     :reportImplicitAbstractClass "hint"
 		     :reportMissingTypeArgument "hint"
 		     :reportUnusedCallResult "none"
+		     :reportMissingTypeStubs "hint"
 		     )
 		    )
 		   )
