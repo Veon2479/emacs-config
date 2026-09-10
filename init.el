@@ -216,7 +216,7 @@
 
 (use-package markdown-mode :ensure t :defer t)
 (use-package dotenv-mode :ensure t :defer t)
-(use-package docker-compose-mode :ensure t :defer t)
+;; (use-package docker-compose-mode :ensure t :defer t)
 
 (use-package color :defer t)
 
@@ -354,7 +354,7 @@
 	  "--parser" "yaml"
 	  "--tab-width" "2"
 	  "--use-tabs" "false"))
-  (setf (alist-get 'docker-compose-mode apheleia-mode-alist) '(prettier-yaml))
+  ;; (setf (alist-get 'docker-compose-mode apheleia-mode-alist) '(prettier-yaml))
 
   (apheleia-global-mode t)
 
