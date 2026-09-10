@@ -38,7 +38,6 @@
   (auto-package-update-hide-results t)
 
   :config
-  (auto-package-update-maybe)
   (auto-package-update-at-time "14:00")
   )
 
@@ -291,6 +290,7 @@
 		  ;; basedpyright-langserver
 		  :basedpyright
 		  (
+		   :allowedUntypedLibraries ["mercantile" "rasterio"] ;; does not work?
 		   :typeCheckingMode "recommended"
 		   :analysis
 		   (
