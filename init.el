@@ -112,6 +112,17 @@
 (frame-parameter nil 'client) ;; fix KDE window grouping when using emacsclient and pinning
 (setq vc-display-status nil)
 
+(use-package reverse-im
+  :ensure t
+  :demand t
+
+  :custom
+  (reverse-im-input-methods '("belarusian" "russian-computer"))
+
+  :config
+  (reverse-im-mode t)
+  )
+
 (setq scroll-conservatively 10
       scroll-margin 15)
 
