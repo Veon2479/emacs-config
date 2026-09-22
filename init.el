@@ -361,7 +361,9 @@
   (setf (alist-get 'python-ts-mode apheleia-mode-alist) '(autopep8 isort))
 
   (setf (alist-get 'prettier apheleia-formatters)
-        '("prettier" "--stdin-filepath" filepath))
+        '("prettier"
+	  "--tab-width" "4"
+	  "--stdin-filepath" filepath))
   (setf (alist-get 'json-ts-mode apheleia-mode-alist) '(prettier))
 
   (setf (alist-get 'prettier-yaml apheleia-formatters)
@@ -371,6 +373,7 @@
 	  "--use-tabs" "false"))
   ;; (setf (alist-get 'docker-compose-mode apheleia-mode-alist) '(prettier-yaml))
 
+  (setq apheleia-remote-algorithm 'local)
   (apheleia-global-mode t)
 
   )
