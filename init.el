@@ -167,6 +167,7 @@
            ("Org" (mode . org-mode))
  	   ("JSON" (derived-mode . json-mode))
 	   ("Markdown" (mode . markdown-mode))
+	   ("Make" (derived-mode . makefile-gmake-mode))
            ("Code" (derived-mode . prog-mode))
 	   )))
   (add-hook 'ibuffer-mode-hook
