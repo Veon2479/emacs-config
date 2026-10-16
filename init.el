@@ -155,6 +155,7 @@
 
   :custom
   (ibuffer-never-show-predicates '("^\\*"))
+  (ibuffer-show-empty-filter-groups nil)
 
   :hook
   (ibuffer-mode . ibuffer-auto-mode)
@@ -162,9 +163,12 @@
   :config
   (setq ibuffer-saved-filter-groups
         '(("default"
+	   ("Dired" (mode . dired-mode))
            ("Org" (mode . org-mode))
+ 	   ("JSON" (derived-mode . json-mode))
+	   ("Markdown" (mode . markdown-mode))
            ("Code" (derived-mode . prog-mode))
-           ("Dired" (mode . dired-mode)))))
+	   )))
   (add-hook 'ibuffer-mode-hook
             (lambda ()
               (ibuffer-switch-to-saved-filter-groups "default")))
