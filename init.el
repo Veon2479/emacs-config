@@ -153,6 +153,15 @@
 (use-package ibuffer
   :ensure nil
 
+  :preface
+  (defun my/ibuffer-mouse-visit (event)
+    (interactive "e")
+    (mouse-set-point event)
+    (call-interactively (key-binding (kbd "RET"))))
+
+  :bind
+  (:map ibuffer-name-map ("<mouse-1>" . my/ibuffer-mouse-visit))
+
   :custom
   (ibuffer-never-show-predicates '("^\\*"))
   (ibuffer-show-empty-filter-groups nil)
