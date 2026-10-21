@@ -312,6 +312,10 @@
                '(json-ts-mode . ("vscode-json-languageserver" "--stdio"
 				 :initializationOptions (:provideFormatter t))))
 
+  ;; https://github.com/owenrumney/make-ls
+  (add-to-list 'eglot-server-programs
+	       '(makefile-gmake-mode . ("make-ls")))
+
   (setq-default eglot-workspace-configuration
 		'(
 		  ;; basedpyright-langserver
