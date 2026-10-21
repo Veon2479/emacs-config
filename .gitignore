@@ -4,3 +4,4 @@
 !custom.el
 !.gitignore
 !ec
+!emacsclient.desktop
