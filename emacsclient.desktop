@@ -18,11 +18,3 @@ TerminalOptions=
 Type=Application
 X-KDE-SubstituteUID=false
 X-KDE-Username=
-
-[Desktop Action new-instance]
-Exec=emacs %F
-Name=New Instance
-
-[Desktop Action new-window]
-Exec=/usr/bin/emacsclient --no-wait --alternate-editor= --create-frame %F
-Name=New Window
