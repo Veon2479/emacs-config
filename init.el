@@ -4,6 +4,9 @@
 (setq custom-file (expand-file-name "custom.el" user-emacs-directory))
 (load custom-file 'noerror)
 
+(add-to-list 'custom-theme-load-path "~/.emacs.d/themes/")
+(load-theme 'leaf-dark t)
+
 (setq package-archives '(
 			 ("GNU ELPA"     . "https://elpa.gnu.org/packages/")
 			 ("MELPA"        . "https://melpa.org/packages/")
@@ -20,6 +23,11 @@
 				   )
       )
 (package-initialize)
+
+(use-package rainbow-delimiters
+  :ensure t
+  :hook (prog-mode . rainbow-delimiters-mode))
+
 
 ;; refresh package contents before any installation
 (defun my/package-refresh-before-install (orig-fun &rest args)
@@ -55,42 +63,6 @@
 ;; (setq tramp-backup-directory-alist backup-directory-alist)
 (setq backup-directory-alist '(("." . "~/.emacs.d/tmp")))
 (setq tramp-backup-directory-alist nil)
-
-;; (load "~/.emacs.d/leaf-dark-theme.el")
-;; (load-theme 'leaf-dark t)
-
-
-;; (use-package ef-themes
-;;   :ensure t
-
-;;   :init
-;;   ;; This makes the Modus commands listed below consider only the Ef
-;;   ;; themes.  For an alternative that includes Modus and all
-;;   ;; derivative themes (like Ef), enable the
-;;   ;; `modus-themes-include-derivatives-mode' instead.  The manual of
-;;   ;; the Ef themes has a section that explains all the possibilities:
-;;   ;;
-;;   ;; - Evaluate `(info "(ef-themes) Working with other Modus themes or taking over Modus")'
-;;   ;; - Visit <https://protesilaos.com/emacs/ef-themes#h:6585235a-5219-4f78-9dd5-6a64d87d1b6e>
-;;   (ef-themes-take-over-modus-themes-mode t)
-
-;;   :bind
-;;   (
-;;    ;; ("<f5>" . modus-themes-rotate)
-;;    ("C-<f5>" . modus-themes-select)
-;;    ("M-<f5>" . modus-themes-load-random)
-;;    )
-
-;;   :config
-;;   ;; All customisations here.
-;;   (setq modus-themes-mixed-fonts t)
-;;   (setq modus-themes-italic-constructs t)
-
-;;   ;; Finally, load your theme of choice (or a random one with
-;;   ;; `modus-themes-load-random', `modus-themes-load-random-dark',
-;;   ;; `modus-themes-load-random-light').
-;;   (modus-themes-load-theme 'ef-elea-dark)
-;;   )
 
 ;; when opening files with emacsclient, use existing emacs window
 (use-package server
@@ -450,6 +422,3 @@
       (with-no-warnings (font-lock-fontify-buffer)))))
 
 (add-hook 'prog-mode-hook #'highlight-codetags-mode)
-
-(add-to-list 'custom-theme-load-path "~/.emacs.d/themes/")
-(load-theme 'leaf-dark t)
