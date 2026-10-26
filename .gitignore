@@ -5,3 +5,6 @@
 !.gitignore
 !ec
 !emacsclient.desktop
+
+!themes
+!themes/*
