@@ -4,6 +4,9 @@
 (setq custom-file (expand-file-name "custom.el" user-emacs-directory))
 (load custom-file 'noerror)
 
+(add-to-list 'load-path "~/.emacs.d/faces/")
+(require 'kate-faces)
+
 (add-to-list 'custom-theme-load-path "~/.emacs.d/themes/")
 (load-theme 'leaf-dark t)
 
