@@ -27,10 +27,6 @@
       )
 (package-initialize)
 
-(use-package rainbow-delimiters
-  :ensure t
-  :hook (prog-mode . rainbow-delimiters-mode))
-
 
 ;; refresh package contents before any installation
 (defun my/package-refresh-before-install (orig-fun &rest args)
@@ -51,6 +47,15 @@
   :config
   (auto-package-update-at-time "14:00")
   )
+
+
+(use-package rainbow-delimiters
+  :ensure t
+  :hook (prog-mode . rainbow-delimiters-mode))
+
+
+(use-package diminish :ensure t)
+
 
 (use-package no-littering
   :ensure t
@@ -254,6 +259,9 @@
 
 (use-package treesit-fold
   :ensure t
+  :demand t
+
+  :diminish treesit-fold-mode
 
   :config
   (global-treesit-fold-indicators-mode t)
@@ -264,7 +272,11 @@
 
   )
 
-(add-hook 'prog-mode-hook #'reveal-mode)
+(use-package reveal
+  :diminish reveal-mode
+  :hook (prog-mode . reveal-mode)
+  )
+
 
 ;; in order to upgrade eglot to latest version manually https://www.gnu.org/software/emacs/manual/html_node/eglot/Getting-the-latest-version.html
 (use-package eglot
@@ -336,6 +348,8 @@
 (use-package apheleia
   :ensure t
   :defer nil
+
+  :diminish apheleia-mode
 
   :config
 
