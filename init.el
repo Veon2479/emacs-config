@@ -91,6 +91,7 @@
 (tool-bar-mode -1)
 (frame-parameter nil 'client) ;; fix KDE window grouping when using emacsclient and pinning
 (setq vc-display-status nil)
+(word-wrap-whitespace-mode) ;; do not break tokens, wrap lines around whitespaces
 
 (use-package reverse-im
   :ensure t
@@ -277,6 +278,7 @@
   :hook (prog-mode . reveal-mode)
   )
 
+(add-to-list 'major-mode-remap-alist '(js-json-mode . json-ts-mode))
 
 ;; in order to upgrade eglot to latest version manually https://www.gnu.org/software/emacs/manual/html_node/eglot/Getting-the-latest-version.html
 (use-package eglot
