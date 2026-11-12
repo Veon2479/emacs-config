@@ -225,6 +225,8 @@
 (use-package dotenv-mode :ensure t :defer t)
 ;; (use-package docker-compose-mode :ensure t :defer t)
 
+(use-package nix-ts-mode :ensure t :defer t :mode "\\.nix\\'")
+
 (use-package color :defer t)
 
 (defun my/csv-highlight (&optional separator)
