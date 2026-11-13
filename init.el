@@ -222,7 +222,12 @@
 ;;configure LSP-related things
 
 (use-package markdown-mode :ensure t :defer t)
-(use-package dotenv-mode :ensure t :defer t)
+(use-package dotenv-mode
+  :ensure t
+  :defer t
+  :mode "\\.env\\..*\\'"
+  )
+
 ;; (use-package docker-compose-mode :ensure t :defer t)
 
 (use-package nix-ts-mode :ensure t :defer t :mode "\\.nix\\'")
