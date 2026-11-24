@@ -92,6 +92,8 @@
 (frame-parameter nil 'client) ;; fix KDE window grouping when using emacsclient and pinning
 (setq vc-display-status nil)
 (word-wrap-whitespace-mode) ;; do not break tokens, wrap lines around whitespaces
+(electric-pair-mode 1)
+(custom-set-faces '(delete-selection-replacement ((t nil)))) ;; remove weird selection after replacement
 
 (use-package reverse-im
   :ensure t
@@ -225,7 +227,7 @@
 (use-package dotenv-mode
   :ensure t
   :defer t
-  :mode "\\.env\\..*\\'"
+  :mode ("\\.env\\..*\\'" "\\.versions\\'")
   )
 
 ;; (use-package docker-compose-mode :ensure t :defer t)
