@@ -91,7 +91,8 @@
 (tool-bar-mode -1)
 (frame-parameter nil 'client) ;; fix KDE window grouping when using emacsclient and pinning
 (setq vc-display-status nil)
-(word-wrap-whitespace-mode) ;; do not break tokens, wrap lines around whitespaces
+(setq-default truncate-lines nil
+	      word-wrap t);; do not break tokens, wrap lines around whitespaces
 (electric-pair-mode 1)
 (custom-set-faces '(delete-selection-replacement ((t nil)))) ;; remove weird selection after replacement
 
